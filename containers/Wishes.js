@@ -1,10 +1,12 @@
 import React from 'react';
 import LocationCard from './LocationCard'
-import {View} from 'react-native'
+import {View, StyleSheet} from 'react-native'
+import wishlist from '../assets/wishlist'
 
-const Wishes = ({wishlist}) => {
+const Wishes = () => {
   return(
-    <View>
+
+    <View style = {styles.map}>
       {wishlist.map((u) =>
           <LocationCard location = {u}/>
         )
@@ -14,3 +16,11 @@ const Wishes = ({wishlist}) => {
 }
 
 export default Wishes;
+
+const styles = StyleSheet.create({
+  map: {
+    flexDirection: "column-reverse",
+    justifyContent: "space-evenly",
+    marginBottom: 10
+  },
+});

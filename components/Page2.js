@@ -28,8 +28,15 @@ export default function Page2({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Icon name = "plus-a" type = "fontisto" color = "#517fa4" onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Icon raised name = "arrow-return-left" type = "fontisto" color = "#DB9B8F"
+          onPress={() => navigation.goBack()} />
 
+          <Icon raised name = "plus-a" type = "fontisto" color = "#DB9B8F"
+            onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, wishlist: wishlist})} />
+      </View>
+      
+      <Wishes/>
 
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
