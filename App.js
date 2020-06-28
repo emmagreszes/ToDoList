@@ -8,7 +8,7 @@ import WishlistForm from "./components/forms/WishlistForm";
 function Page1({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding:'200'}}>
-      <Text>Home Screen</Text>
+      <Text>To Do List</Text>
       <TouchableOpacity>
       <Button
         title="Page2"
