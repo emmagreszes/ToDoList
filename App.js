@@ -8,12 +8,11 @@ import WishlistForm from "./components/forms/WishlistForm";
 function Page1({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding:'200'}}>
-      <Text>To Do List</Text>
       <TouchableOpacity>
       <Button
-        title="Page2"
+        title="To Do List"
         color="#DB9B8F"
-        onPress={() => {navigation.navigate("Page2")}}
+        onPress={() => {navigation.navigate("ToDo")}}
       />
       </TouchableOpacity>
     </View>
@@ -26,8 +25,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Page1" component={Page1} />
-        <Stack.Screen name="Page2" component={Page2} />
+        <Stack.Screen name="Home Screen" component={Page1} />
+        <Stack.Screen name="ToDo" component={Page2} />
         <Stack.Screen name="WishlistForm" component={WishlistForm} />
       </Stack.Navigator>
     </NavigationContainer>

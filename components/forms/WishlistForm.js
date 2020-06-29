@@ -4,29 +4,28 @@ import useStickyState from '../../useStickyState';
 import FormField from '../FormField';
 import { Card, ListItem, Icon } from 'react-native-elements'
 import { formData } from '../formData';
-import wishPage from '../Page2'
 
 export default function WishlistForm({ route, navigation }) {
   const [text, setText] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [image, setImage] = useState('');
-  const wishlist = route.params.wishlist;
+  const [task, setTask] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const [time, setTime] = useState('');
+  const toDoList = route.params.toDoList;
   const writeItemToStorage = route.params.writeItemToStorage;
 
   const handleFormValueChange = (key, value) => {
-    if (key == 'city') {
-      setCity(value)
-    } else if (key == 'country') {
-      setCountry(value)
-    } else if (key == 'image') {
-      setImage(value)
+    if (key == 'task') {
+      setTask(value)
+    } else if (key == 'dueDate') {
+      setDueDate(value)
+    } else if (key == 'time') {
+      setTime(value)
     }
   }
 
   const handleSubmit = () => {
-    const obj = {City:city, Country:country, img:{src:image, alt:"picture"}}
-    writeItemToStorage(wishlist.concat(obj))
+    const obj = {Task:task, DueDate:dueDate, Time:time}
+    writeItemToStorage(toDoList.concat(obj))
     navigation.goBack()
   }
 
@@ -34,44 +33,31 @@ export default function WishlistForm({ route, navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
     <FormField
-      label='City'
-      formKey='city'
-      placeholder='City'
+      label='Task'
+      formKey='task'
+      placeholder='Task'
       handleFormValueChange={handleFormValueChange}
     />
     <FormField
-      label='Country'
-      formKey='country'
-      placeholder='country'
+      label='DueDate'
+      formKey='dueDate'
+      placeholder='Due Date/ Target Goal'
       handleFormValueChange={handleFormValueChange}
     />
     <FormField
-      label='Image URL'
-      formKey='image'
-      placeholder='Image URL'
+      label='Time'
+      formKey='time'
+      placeholder='Desired Time to Complete Task'
       handleFormValueChange={handleFormValueChange}
     />
     <Button title = "Submit" onPress={handleSubmit}/>
 
-      <TextInput
-        style={{height: 40}}
-        placeholder="Type here to translate!"
-        onChangeText={text => setText(text)}
-        defaultValue={text}
-      />
-      <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🌍').join(' ')}
-      </Text>
+
 
       <Card containerStyle= {{padding:8}}>
         {
             <View>
-              <Image
-                style= {{ width: 305, height: 300}}
-                resizeMode="cover"
-                source={{ uri: image }}
-              />
-              <Text style = {styles.text}>{city} ,{country}</Text>
+              <Text style = {styles.text}>{task}</Text>
             </View>
         }
       </Card>

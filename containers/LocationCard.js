@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image } from 'react-native'
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import FlipCard from 'react-native-flip-card'
 
-const LocationCard = ({ location }) => {
+const LocationCard = ({ goal }) => {
   return (
 
       <FlipCard
@@ -17,14 +17,9 @@ const LocationCard = ({ location }) => {
         onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
       >
         {/* Face Side */}
-        <View  style = {styles.card} key = {location.id}>
+        <View  style = {styles.card} key = {goal.id}>
           <Icon style = {styles.pin} name = "pinboard" type = "fontisto" color = "red"/>
-          <Image
-            style= {styles.image}
-            resizeMode="cover"
-            source={{ uri: location.img.src }}
-          />
-          <Text style = {styles.text}>{location.City}, {location.Country}</Text>
+          <Text style = {styles.text}>{goal.Task}</Text>
         </View>
         {/* Back Side */}
         <View style = {styles.back}>
