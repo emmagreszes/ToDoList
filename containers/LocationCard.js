@@ -23,11 +23,8 @@ const LocationCard = ({ goal }) => {
         </View>
         {/* Back Side */}
         <View style = {styles.back}>
-          <Text>Things to Do: </Text>
-          <Text> -Go swimming </Text>
-          <Text> -Drink! </Text>
-          <Text> -See Rome </Text>
-          <Text> -Get married! </Text>
+          <Text>Complete by: {goal.DueDate} </Text>
+          <Text>Estimated Time to Complete: {goal.Time} </Text>
           <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#517fa4" onPress = "DELETE" />
 
         </View>

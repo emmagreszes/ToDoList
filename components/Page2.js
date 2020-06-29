@@ -1,8 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
 import {Icon} from 'react-native-elements';
-import Wishes from '../containers/Wishes'
-import WishlistForm from './forms/WishlistForm'
+import TaskList from '../containers/TaskList'
+import Form from './forms/Form'
 import { useAsyncStorage } from '@react-native-community/async-storage';
 import toDo from '../assets/toDoList';
 
@@ -29,16 +29,14 @@ export default function Page2({ route, navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Icon raised name = "arrow-return-left" type = "fontisto" color = "#DB9B8F"
-          onPress={() => navigation.goBack()} />
+        <Icon raised name = "arrow-return-left" type = "fontisto" color = "#DB9B8F" onPress={() => navigation.goBack()} />
 
           <Icon raised name = "plus-a" type = "fontisto" color = "#DB9B8F"
-            onPress = {() => navigation.navigate('WishlistForm', {writeItemToStorage: writeItemToStorage, toDoList: toDoList})} />
+            onPress = {() => navigation.navigate('Form', {writeItemToStorage: writeItemToStorage, toDoList: toDoList})} />
       </View>
 
-      <Wishes/>
+      <TaskList toDoList = {toDoList||[]}/>
 
-      <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
 }

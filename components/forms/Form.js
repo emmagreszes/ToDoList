@@ -3,9 +3,8 @@ import { Text, View, TextInput, Button, Image, StyleSheet } from 'react-native';
 import useStickyState from '../../useStickyState';
 import FormField from '../FormField';
 import { Card, ListItem, Icon } from 'react-native-elements'
-import { formData } from '../formData';
 
-export default function WishlistForm({ route, navigation }) {
+export default function Form({ route, navigation }) {
   const [text, setText] = useState('');
   const [task, setTask] = useState('');
   const [dueDate, setDueDate] = useState('');
@@ -31,6 +30,8 @@ export default function WishlistForm({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Icon raised name = "arrow-return-left" type = "fontisto" color = "#DB9B8F"
+      onPress={() => navigation.goBack()} />
 
     <FormField
       label='Task'
@@ -50,18 +51,7 @@ export default function WishlistForm({ route, navigation }) {
       placeholder='Desired Time to Complete Task'
       handleFormValueChange={handleFormValueChange}
     />
-    <Button title = "Submit" onPress={handleSubmit}/>
-
-
-
-      <Card containerStyle= {{padding:8}}>
-        {
-            <View>
-              <Text style = {styles.text}>{task}</Text>
-            </View>
-        }
-      </Card>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+    <Icon raised name = "check" type = "fontisto" color = "#DB9B8F" onPress={handleSubmit} />
     </View>
   );
 }
