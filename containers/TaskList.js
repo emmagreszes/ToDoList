@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationCard from './LocationCard'
+import TaskCard from './TaskCard'
 import {View, StyleSheet} from 'react-native'
 import toDoList from '../assets/toDoList'
 
@@ -8,7 +8,7 @@ const TaskList = ({toDoList}) => {
 
     <View >
       {toDoList.map((u) =>
-          <LocationCard goal = {u}/>
+          <TaskCard goal = {u}/>
         )
       }
     </View>

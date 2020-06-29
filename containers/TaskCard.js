@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image } from 'react-native'
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import FlipCard from 'react-native-flip-card'
 
-const LocationCard = ({ goal }) => {
+const TaskCard = ({ goal }) => {
   return (
 
       <FlipCard
@@ -18,14 +18,14 @@ const LocationCard = ({ goal }) => {
       >
         {/* Face Side */}
         <View  style = {styles.card} key = {goal.id}>
-          <Icon style = {styles.pin} name = "pinboard" type = "fontisto" color = "red"/>
+          <Icon name = "pinboard" type = "fontisto" color = "#DB9B8F" />
           <Text style = {styles.text}>{goal.Task}</Text>
         </View>
         {/* Back Side */}
         <View style = {styles.back}>
           <Text>Complete by: {goal.DueDate} </Text>
           <Text>Estimated Time to Complete: {goal.Time} </Text>
-          <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#517fa4" onPress = "DELETE" />
+          <Icon style = {styles.icon} name = "trash" type = "fontisto" color = "#DB9B8F" onPress = "DELETE" />
 
         </View>
 
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   },
   card: {
     justifyContent: 'center',
-    width: 150,
-    height: 160,
+    width: 250,
+    height: 80,
     marginBottom: 12,
     paddingLeft: 10,
     paddingTop: 10,
@@ -91,11 +91,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingTop: 10,
   },
-  pin: {
-    justifyContent: "left",
-    marginTop: 5,
-    color: "red",
-  }
 })
 
-export default LocationCard;
+export default TaskCard;
